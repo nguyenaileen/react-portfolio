@@ -1,16 +1,35 @@
-// Bringing in the required import from 'react-router-dom'
-import { Outlet } from 'react-router-dom';
-import Nav from './components/NavTabs';
+//outlet is a reqired import from react-router-dom
+import { Outlet } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import "./components/style.css";
+
+import Footer from "./components/Footer";
 
 function App() {
-  // The Outlet component will conditionally swap between the different pages according to the URL
   return (
-    <>
-      <Nav />
-      <main className="mx-3">
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        background: "#EDE3E4",
+        // outline: "solid red 2px",
+        minHeight: "100vh",
+      }}
+    >
+      <Navbar />
+
+      <main
+        className="mx-3"
+        style={{
+          // outline: "solid green 2px",
+          height: "100%",
+        }}
+      >
         <Outlet />
       </main>
-    </>
+
+      <Footer />
+    </div>
   );
 }
 
