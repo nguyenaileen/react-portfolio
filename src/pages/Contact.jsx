@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <div>
+    <div style={{fontFamily: "Gill Sans"}}>
       <h1>Contact Page</h1>
       <p>
         Integer cursus bibendum sem non pretium. Vestibulum in aliquet sem, quis
