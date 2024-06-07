@@ -7,18 +7,18 @@ function NavTabs() {
 
   return (
     <ul className="nav nav-tabs">
-      <li className="nav-item">
-        <Link
+      <li className="nav-header" id= "nav-header">
+        <Link style={{color: "#CC5500"}}
           to="/"
           // This is a conditional (ternary) operator that checks to see if the current page is "Home"
           // If it is, we set the current page to 'nav-link-active', otherwise we set it to 'nav-link'
           className={currentPage === '/' ? 'nav-link active' : 'nav-link'}
         >
-          Home
+          Aileen Nguyen
         </Link>
       </li>
       <li className="nav-item">
-        <Link
+        <Link style={{color: "#808080"}}
           to="/About"
           // Check to see if the currentPage is `About`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
           className={currentPage === '/About' ? 'nav-link active' : 'nav-link'}
@@ -27,16 +27,25 @@ function NavTabs() {
         </Link>
       </li>
       <li className="nav-item">
-        <Link
-          to="/Blog"
+        <Link style={{color: "#808080"}}
+          to="/Work"
           // Check to see if the currentPage is `Blog`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
-          className={currentPage === '/Blog' ? 'nav-link active' : 'nav-link'}
+          className={currentPage === '/Work' ? 'nav-link active' : 'nav-link'}
         >
-          Blog
+          Work
         </Link>
       </li>
       <li className="nav-item">
-        <Link
+        <Link style={{color: "#808080"}}
+          to="/Resume"
+          // Check to see if the currentPage is `Blog`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
+          className={currentPage === '/Resume' ? 'nav-link active' : 'nav-link'}
+        >
+          Resume
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link style={{color: "#808080"}}
           to="/Contact"
           // Check to see if the currentPage is `Contact`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
           className={currentPage === '/Contact' ? 'nav-link active' : 'nav-link'}
