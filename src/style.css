@@ -46,3 +46,31 @@ font-weight: bold;
   font-size: 20px;
   font-weight: 900;
 }
+
+.button{
+ background-color: #CC5500;
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+font-weight: bold;
+border-style: none;
+margin-top: 30px;
+margin-bottom: 30px;
+color: white;
+  
+}
+
+.button:hover{
+  background-color: #8d3b01;
+ cursor: pointer;
+   
+ }
+
+ .error{
+  color: rgb(114, 4, 4);
+ }
+
+ .submitted{
+  color: rgb(0, 92, 61);
+ }

@@ -1,20 +1,145 @@
-export default function Contact() {
+import { useState } from "react";
+import { testEmail } from "../utils/helpers";
+
+function contactForm() {
+  
+  const [name, userName] = useState("");
+  const [email, userEmail] = useState("");
+  const [message, userMessage] = useState("");
+  const [errorMessage, userErrorMessage] = useState("");
+  const [submitMessage, userSubmitMessage] = useState("");
+
+ 
+  const InputChange = (e) => {
+    const { target } = e;
+    const inputType = target.name; 
+    const inputValue = target.value;
+
+    if (inputType === "name") {
+      userName(inputValue);
+    } else if (inputType == "email") {
+      userEmail(inputValue);
+    } else {
+      userMessage(inputValue);
+    }
+  };
+
+  const EmailValidation = () => {
+    if (!testEmail(email)) {
+      userErrorMessage("Enter valid email");
+      userSubmitMessage("");
+    } else {
+      userErrorMessage("");
+    }
+  };
+ 
+  
+  const MessageField = () => {
+    if (!message) {
+      userErrorMessage("Enter a message");
+      userSubmitMessage("");
+    } else {
+      userErrorMessage("");
+    }
+  };
+ 
+  
+
+  const NameField = () => {
+    if (!name) {
+      userErrorMessage("Enter your name");
+      userSubmitMessage("");
+    } else {
+      userErrorMessage("");
+    }
+  };
+  
+  
+  const FormSubmit = (e) => {
+    e.preventDefault();
+  
+
+    EmailValidation();
+
+
+    
+    if (!email || !name || !message || !testEmail(email)) {
+      userErrorMessage("Please fill in all fields. ");
+    } else {
+      userSubmitMessage("Sent!");
+      userName("");
+      userEmail("");
+      userMessage("");
+    }
+  };
+
+ //Form
   return (
-    <div style={{fontFamily: "Gill Sans"}}>
-      <h1>Contact Page</h1>
-      <p>
-        Integer cursus bibendum sem non pretium. Vestibulum in aliquet sem, quis
-        molestie urna. Aliquam semper ultrices varius. Aliquam faucibus sit amet
-        magna a ultrices. Aenean pellentesque placerat lacus imperdiet
-        efficitur. In felis nisl, luctus non ante euismod, tincidunt bibendum
-        mi. In a molestie nisl, eu sodales diam. Nam tincidunt lacus quis magna
-        posuere, eget tristique dui dapibus. Maecenas fermentum elementum
-        faucibus. Quisque nec metus vestibulum, egestas massa eu, sollicitudin
-        ipsum. Nulla facilisi. Sed ut erat ligula. Nam tincidunt nunc in nibh
-        dictum ullamcorper. Class aptent taciti sociosqu ad litora torquent per
-        conubia nostra, per inceptos himenaeos. Etiam ornare rutrum felis at
-        rhoncus. Etiam vel condimentum magna, quis tempor nulla.
-      </p>
+    <div className="mt-3"style={{fontFamily: "Gill Sans"}}>
+      <header style={{textAlign: "center"}} >Contact Me</header>
+      <form className="form" onSubmit={FormSubmit}>
+        <div className="mb-3">
+          <label className="form-label">Name:</label>
+          <input
+            className="form-control"
+            value={name}
+            onChange={InputChange}
+            onBlur={NameField}
+            name="name"
+            type="name"
+        
+         
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Email:</label>
+          <input
+            className="form-control"
+            value={email}
+            onChange={InputChange}
+            onBlur={EmailValidation}
+            name="email"
+            type="text"
+         
+          />
+        </div>
+
+        <div className="">
+          <label className="form-label">Message:</label>
+          <textarea
+            className="form-control"
+            value={message}
+            onChange={InputChange}
+            onBlur={MessageField}
+            name="message"
+            type="text"
+           
+            style={{ height: 100 }}
+          />
+        </div>
+        <button
+          type="submit"
+          className="button"
+        >
+          Send Message
+        </button>
+      </form>
+      {errorMessage && (
+        <div>
+          <p style={{ color: "red" }} className="error">
+            {errorMessage}
+          </p>
+        </div>
+      )}
+      {submitMessage && (
+        <div>
+          <p className="submitted">
+            {submitMessage}
+          </p>
+        </div>
+      )}
     </div>
   );
 }
+
+export default contactForm;
