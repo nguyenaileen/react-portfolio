@@ -1,0 +1,24 @@
+#nav-header{
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.nav-item{
+padding-top: 15px;
+}
+
+a{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+  color: #CC5500
+}
+
+
+.nav-item{
+  color: #CC5500
+}
+
